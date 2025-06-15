@@ -35,6 +35,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      draco3d:
+        specifier: ^1.5.7
+        version: 1.5.7
       embla-carousel-autoplay:
         specifier: ^8.5.2
         version: 8.5.2(embla-carousel@8.5.2)
@@ -71,6 +74,9 @@ importers:
       three:
         specifier: ^0.177.0
         version: 0.177.0
+      three-stdlib:
+        specifier: ^2.36.0
+        version: 2.36.0(three@0.177.0)
       tw-animate-css:
         specifier: ^1.2.5
         version: 1.2.5

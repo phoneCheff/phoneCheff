@@ -5,13 +5,27 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import * as THREE from "three";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 
-// Preload el modelo una vez para mejorar la experiencia
+// Preload (sin loader especial aquí, lo hacemos abajo)
 useGLTF.preload("/models/iphone16/model-draco.glb");
 
 function Model() {
-  const gltf = useGLTF("/models/iphone16/model-draco.glb");
   const modelRef = useRef<THREE.Group>(null);
+
+  const gltf = useGLTF(
+    "/models/iphone16/model-draco.glb",
+    undefined,
+    false,
+    (loader) => {
+      const dracoLoader = new DRACOLoader();
+      dracoLoader.setDecoderPath("/draco/");
+
+      // 👇 Este error es de tipo solamente, lo ignoramos
+      // @ts-expect-error: loader no viene de three-stdlib
+      loader.setDRACOLoader(dracoLoader);
+    }
+  );
 
   useFrame(() => {
     if (modelRef.current) {
@@ -37,7 +51,6 @@ export default function ModelCanvas() {
           shadows
           gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
         >
-          {/* Luces optimizadas */}
           <hemisphereLight intensity={5.7} groundColor="black" />
           <directionalLight position={[5, 5, 5]} intensity={3.5} castShadow />
 
