@@ -1,29 +1,23 @@
 "use client";
 
+import { createDracoLoader } from "@/components/DracoLoaderConfig";
 import { Bounds, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import * as THREE from "three";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-
-// Preload (sin loader especial aquí, lo hacemos abajo)
-useGLTF.preload("/models/iphone16/model-draco.glb");
 
 function Model() {
   const modelRef = useRef<THREE.Group>(null);
 
+  // Preload (sin loader especial aquí, lo hacemos abajo)
   const gltf = useGLTF(
     "/models/iphone16/model-draco.glb",
     undefined,
     false,
     (loader) => {
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath("/draco/");
-
-      // 👇 Este error es de tipo solamente, lo ignoramos
-      // @ts-expect-error: loader no viene de three-stdlib
-      loader.setDRACOLoader(dracoLoader);
+      // @ts-expect-error: loader type no coincide perfectamente
+      loader.setDRACOLoader(createDracoLoader());
     }
   );
 
