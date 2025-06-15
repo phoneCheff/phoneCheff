@@ -19,10 +19,10 @@ const Footer = () => {
           >
             <Image
               alt="Logo de PhoneCheff"
-              src="/images/logo.png"
+              src="/images/logo1.png"
               width={80}
               height={80}
-              className="h-16 w-auto rounded-full"
+              className="h-20 w-auto "
               priority={false}
               loading="lazy"
             />
@@ -33,7 +33,7 @@ const Footer = () => {
             <ul className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
               <li>
                 <Link
-                  href="#about-section"
+                  href={"/"}
                   className="hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:rounded-md px-2 py-1"
                 >
                   Acerca

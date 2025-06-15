@@ -17,19 +17,18 @@ export function NavigationMenuDemo() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link
-            href="#home" // ID de la sección destino
-            legacyBehavior
-            passHref
-            scroll={false} // Desactiva el scroll automático de Next.js
-          >
+          <Link href="/" legacyBehavior passHref scroll={false}>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("home")?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                // Si ya estamos en la home, hacemos scroll suave
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  document.getElementById("home")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+                // Si no, el Link navegará normalmente a "/"
               }}
             >
               Inicio
@@ -38,19 +37,18 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link
-            href="#about-section" // ID de la sección destino
-            legacyBehavior
-            passHref
-            scroll={false} // Desactiva el scroll automático de Next.js
-          >
+          <Link href="/#about-section" legacyBehavior passHref scroll={false}>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("about-section")?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                // Si ya estamos en la home, hacemos scroll suave
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  document.getElementById("about-section")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+                // Si no, el Link navegará normalmente a "/"
               }}
             >
               Acerca
@@ -59,19 +57,18 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link
-            href="#desbloqueos" // ID de la sección destino
-            legacyBehavior
-            passHref
-            scroll={false} // Desactiva el scroll automático de Next.js
-          >
+          <Link href="/#desbloqueos" legacyBehavior passHref scroll={false}>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("desbloqueos")?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                // Si ya estamos en la home, hacemos scroll suave
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  document.getElementById("desbloqueos")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+                // Si no, el Link navegará normalmente a "/"
               }}
             >
               Desbloqueos
@@ -80,19 +77,38 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link
-            href="#Contact" // ID de la sección destino
-            legacyBehavior
-            passHref
-            scroll={false} // Desactiva el scroll automático de Next.js
-          >
+          <Link href="/ofertas" legacyBehavior passHref scroll={false}>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("Contact")?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                // Si ya estamos en la home, hacemos scroll suave
+                if (window.location.pathname === "/ofertas") {
+                  e.preventDefault();
+                  document.getElementById("ofertas")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+                // Si no, el Link navegará normalmente a "/"
+              }}
+            >
+              Ofertas
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <Link href="/#Contact" legacyBehavior passHref scroll={false}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+              onClick={(e) => {
+                // Si ya estamos en la home, hacemos scroll suave
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  document.getElementById("Contact")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+                // Si no, el Link navegará normalmente a "/"
               }}
             >
               Contacto

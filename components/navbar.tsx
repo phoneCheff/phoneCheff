@@ -9,10 +9,11 @@ import { NavigationMenuDemo } from "./navigation-menu-nav";
 import { ModeToggle } from "./ui/mode-toggle";
 
 const navigation = [
-  { name: "Inicio", href: "#home", current: true },
-  { name: "Acerca", href: "#about-section", current: false },
-  { name: "Desbloqueos", href: "#desbloqueos", current: false },
-  { name: "Contacto", href: "#Contact", current: false },
+  { name: "Inicio", href: "/", current: true },
+  { name: "Acerca", href: "/#about-section", current: false },
+  { name: "Desbloqueos", href: "/#desbloqueos", current: false },
+  { name: "Ofertas", href: "/ofertas", current: false },
+  { name: "Contacto", href: "/#Contact", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -23,7 +24,7 @@ export default function NavBar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-background sticky top-0 z-50 shadow-sm dark:shadow-gray-800"
+      className="bg-white dark:bg-black sticky top-0 z-50 shadow-sm dark:shadow-gray-800"
       aria-label="Navegación principal"
     >
       <div className="mx-auto px-2 sm:px-6 lg:px-10">
@@ -51,29 +52,29 @@ export default function NavBar() {
             {/* Logo con enlace a inicio - Mejor SEO */}
             <div className="flex flex-shrink-0 items-center justify-center">
               <a
-                href="#home"
+                href="/"
                 className="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 <Image
                   alt="Logo de PhoneCheff"
-                  src="/images/logo.png"
+                  src="/images/logo1.png"
                   width={80}
                   height={80}
-                  className="h-16 w-auto rounded-full"
+                  className="h-20 w-auto"
                   priority // Importante para LCP
                 />
               </a>
             </div>
 
             {/* Navegación desktop */}
-            <div className="hidden mt-4 sm:ml-6 sm:block flex-1">
+            <div className="hidden  mt-4 sm:ml-6 sm:block flex-1">
               <div className="flex justify-center">
                 <NavigationMenuDemo />
               </div>
             </div>
 
             {/* ModeToggle - Mejorado accesibilidad */}
-            <div className="absolute right-0 flex items-center sm:relative mt-2">
+            <div className="absolute right-0 flex items-center sm:relative mt-5">
               <ModeToggle aria-label="Alternar modo claro/oscuro" />
             </div>
           </div>

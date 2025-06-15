@@ -1,3 +1,8 @@
+"use client";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
 import {
   Cell24,
   CellIcon,
@@ -6,6 +11,8 @@ import {
   Security,
 } from "@/components/icons/myIcons";
 import { Contact } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -53,59 +60,78 @@ const features = [
 ];
 
 export default function Revisar() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(".feature-card", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="about-section"
       aria-labelledby="about-heading"
-      className="bg-background py-16 sm:py-16"
+      className="bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 py-20 sm:py-24 transition-colors duration-500"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <span className="text-base/7 font-semibold text-indigo-600">
+        <div className="mx-auto max-w-3xl lg:text-center mb-14">
+          <span className="text-indigo-600 font-semibold tracking-wide uppercase">
             Expertos en liberación
           </span>
           <h2
             id="about-heading"
-            className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-primary-background sm:text-5xl lg:text-balance"
+            className="mt-3 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
           >
             Desbloqueos certificados para todas las marcas
           </h2>
-          <p className="mt-6 text-lg/8 text-primary-background">
+          <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto">
             Utilizamos métodos autorizados por fabricantes para garantizar
             resultados permanentes sin afectar tu garantía o funcionalidades del
             dispositivo.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <ul className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-12 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
-            {features.map((feature) => (
-              <li
-                key={feature.name}
-                className="relative pt-16 pb-6 px-6 border-2 border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-background text-center focus-within:ring-2 focus-within:ring-indigo-500"
+        <ul className="grid grid-cols-1 gap-y-12 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-2">
+          {features.map((feature) => (
+            <li
+              key={feature.name}
+              className="feature-card relative pt-16 pb-8 px-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 focus-within:ring-4 focus-within:ring-indigo-400"
+            >
+              <div
+                className="absolute -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-indigo-600 border-4 border-white shadow-lg"
+                aria-label={feature.ariaLabel}
               >
-                {/* Ícono con descripción accesible */}
-                <div
-                  className="absolute left-1/2 -top-8 transform -translate-x-1/2 flex size-16 items-center justify-center rounded-full bg-indigo-600 border-4 border-white shadow-lg"
-                  aria-label={feature.ariaLabel}
-                >
-                  <feature.icon
-                    aria-hidden="true"
-                    className="size-8 text-white"
-                  />
-                </div>
+                <feature.icon
+                  aria-hidden="true"
+                  className="w-10 h-10 text-white"
+                />
+              </div>
 
-                {/* Contenido */}
-                <h3 className="text-lg font-semibold text-indigo-600">
-                  {feature.name}
-                </h3>
-                <p className="mt-3 text-base text-primary-background text-pretty">
-                  {feature.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+              <h3 className="text-xl font-semibold text-indigo-600 text-center mb-3">
+                {feature.name}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 text-center text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
