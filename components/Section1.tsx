@@ -4,11 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 import Smartphone from "./Prueba";
-import {
-  MessengerButton,
-  TelegramButton,
-  WhatsAppButton,
-} from "./buttonsContact";
+import { TelegramButton, WhatsAppButton } from "./buttonsContact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,7 +114,7 @@ const Section1 = () => {
             <div className="flex flex-wrap gap-4">
               <WhatsAppButton />
               <TelegramButton />
-              <MessengerButton />
+              {/* <MessengerButton showName={false} /> */}
             </div>
           </section>
         </div>

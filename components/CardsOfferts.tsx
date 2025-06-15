@@ -4,11 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-import {
-  MessengerButton,
-  TelegramButton,
-  WhatsAppButton,
-} from "./buttonsContact";
+import { TelegramButton, WhatsAppButton } from "./buttonsContact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -355,7 +351,7 @@ const CardsOfferts = () => {
           <div className="flex justify-center gap-4 mt-5 flex-wrap">
             <WhatsAppButton showName={false} />
             <TelegramButton showName={false} />
-            <MessengerButton showName={false} />
+            {/* <MessengerButton showName={false} /> */}
           </div>
         </article>
       ))}

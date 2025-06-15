@@ -12,7 +12,6 @@ interface SocialButtonProps {
   ariaLabel: string;
   showName?: boolean;
 }
-const cellNumber = "+12293106761";
 
 const BaseSocialButton: React.FC<SocialButtonProps> = ({
   href,

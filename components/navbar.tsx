@@ -4,6 +4,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "lucide-react";
 import Image from "next/image";
 import { NavigationMenuDemo } from "./navigation-menu-nav";
 import { ModeToggle } from "./ui/mode-toggle";
@@ -51,7 +52,7 @@ export default function NavBar() {
           <div className="flex flex-1 justify-center sm:justify-start ">
             {/* Logo con enlace a inicio - Mejor SEO */}
             <div className="flex flex-shrink-0 items-center justify-center">
-              <a
+              <Link
                 href="/"
                 className="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
@@ -61,9 +62,10 @@ export default function NavBar() {
                   width={80}
                   height={80}
                   className="h-20 w-auto"
-                  priority // Importante para LCP
+                  priority
                 />
-              </a>
+              </Link>{" "}
+              {/* ← Corregido */}
             </div>
 
             {/* Navegación desktop */}
