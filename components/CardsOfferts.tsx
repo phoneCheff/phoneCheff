@@ -97,7 +97,8 @@ const productsData: ProductGroup[] = [
     ],
   },
   {
-    title: "Eliminación de cuentas iCloud de raíz",
+    title:
+      "Eliminación de cuentas iCloud de raíz por Phishing con información del dispositivo",
     image: "/images/ofertas1/iphone_raiz.avif",
     products: [
       {
@@ -171,6 +172,18 @@ const productsData: ProductGroup[] = [
     ],
   },
   {
+    title: "Eliminación de cuentas iCloud a iPhone de raíz",
+    image: "/images/ofertas1/iphone_raiz.avif",
+    products: [
+      {
+        id: 20,
+        modelos: ["Todos los modelos"],
+        minPrice: 380,
+        maxPrice: 380,
+      },
+    ],
+  },
+  {
     title: "Bypass de cuentas iCloud a MacBook",
     image: "/images/ofertas1/mac_bypass.avif",
     products: [
@@ -182,6 +195,7 @@ const productsData: ProductGroup[] = [
       },
     ],
   },
+
   {
     title: "Eliminación de cuentas iCloud a MacBook de raíz",
     image: "/images/ofertas1/mac_raiz.avif",
@@ -194,6 +208,7 @@ const productsData: ProductGroup[] = [
       },
     ],
   },
+
   {
     title: "Creación de Apple ID",
     image: "/images/ofertas1/appleID.avif",

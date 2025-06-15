@@ -80,7 +80,7 @@ const Slide2 = () => {
           </article>
 
           {/* Modelo 3D reemplazando imágenes */}
-          <figure className="order-1 lg:order-2 h-[550px] w-full">
+          <figure className="order-1 lg:order-2 h-[450px] w-full">
             {/*<ModelCanvas /> */}
             <ModelCanvas />
           </figure>

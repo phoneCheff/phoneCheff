@@ -38,7 +38,7 @@ export default function ModelCanvas() {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <div ref={ref} className="w-full h-[600px] rounded-2xl">
+    <div ref={ref} className="w-full h-[450px] rounded-2xl">
       {inView && (
         <Canvas
           camera={{ position: [0, 0, 5], fov: 45 }}
