@@ -1,5 +1,9 @@
+# *
 User-agent: *
-Disallow:
+Allow: /
 
+# Host
+Host: https://phone-cheff.vercel.app
+
+# Sitemaps
 Sitemap: https://phone-cheff.vercel.app/sitemap.xml
-
