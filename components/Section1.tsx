@@ -3,8 +3,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
-import Smartphone from "./Prueba";
 import { TelegramButton, WhatsAppButton } from "./buttonsContact";
+import Smartphone from "./Prueba";
+import StyledButton from "./StyledButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,6 +106,7 @@ const Section1 = () => {
                 </span>
               </li>
             ))}
+            <StyledButton />
           </ul>
 
           <section aria-labelledby="Contact">
