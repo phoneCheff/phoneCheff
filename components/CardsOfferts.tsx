@@ -258,8 +258,8 @@ const productsData: ProductGroup[] = [
       {
         id: 14,
         modelos: ["Numerosas marcas y compañías"],
-        minPrice: 5,
-        maxPrice: 80,
+        minPrice: 15,
+        maxPrice: 240,
       },
     ],
   },
